@@ -1,15 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>single post</title>
-</head>
-<body>
-    <h1>{{ $post->title }}</h1>
-    <div>{!! $post->body !!}</div>
-</body>
-
-</html>
+<x-layout>
+    <div class="container mx-auto py-12">
+        <h1 class="text-3xl text-gray-700 font-bold mb-6">{{ $post->title }}</h1>
+        <div>{!! $post->body !!}</div>
+    </div>
+</x-layout>
