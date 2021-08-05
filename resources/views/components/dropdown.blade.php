@@ -5,7 +5,7 @@
         {{ $trigger }}
     </div>
     <div x-show="show" x-transition class="py-2 absolute top-full w-full bg-gray-100 rounded-lg mt-2 z-40 overflow-auto max-h-52"
-        @click.away="show = false">
+        @click.away="show = false" style="display: none">
         {{$slot}}
     </div>
 </div>
