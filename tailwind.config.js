@@ -4,6 +4,7 @@ module.exports = {
         "./resources/**/*.blade.php",
         "./resources/**/*.js",
         "./resources/**/*.vue",
+        "./storage/framework/views/*.php",
     ],
     darkMode: false, // or 'media' or 'class'
     theme: {
