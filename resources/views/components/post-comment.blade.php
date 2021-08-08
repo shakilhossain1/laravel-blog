@@ -1,7 +1,7 @@
 @props(['comment'])
 <x-panel class="flex bg-gray-100">
     <div class="flex-shrink-0">
-        <img src="https://i.pravatar.cc/60?u={{ $comment->id }}" class="rounded-full object-cover" alt="hello there" width="60" height="60">
+        <img src="https://i.pravatar.cc/60?u={{ $comment->author->id }}" class="rounded-full object-cover" alt="hello there" width="60" height="60">
     </div>
     <div class="ml-6">
         <header class="mb-6">

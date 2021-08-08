@@ -32,7 +32,7 @@
         </div> --}}
 
         <!-- Search -->
-        {{-- <div class="relative flex lg:inline-flex items-center bg-gray-100 rounded-xl px-3 py-2">
+        <div class="relative flex lg:inline-flex items-center bg-gray-100 rounded-xl px-3 py-2">
             <form method="GET" action="/">
                 @if (request('category'))
                     <input type="hidden" name="category" value="{{ request('category') }}">
@@ -41,8 +41,8 @@
                 class="bg-transparent placeholder-black font-semibold text-sm focus:outline-none"
                 value="{{ request('search') }}">
             </form>
-        </div> --}}
-        <div class="relative w-full lg:w-64" x-data="search()">
+        </div>
+        {{-- <div class="relative w-full lg:w-64" x-data="search()">
             <input type="search" x-model="query" x-on:keyup="run()"
                 class="bg-white border border-gray-300 focus:outline-none rounded-lg p-2 w-full" placeholder="Search..." />
             <div x-show="query" class="absolute bg-white px-4 max-h-64 overflow-y-auto shadow rounded w-full max-w-full" style="display: none;">
@@ -54,6 +54,6 @@
                     </template>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
 </header>
