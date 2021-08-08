@@ -56,7 +56,7 @@ class PostController extends Controller
     {
         // Find a post by it's id and pass it to a view clalled 'post'
         return view('posts.show', [
-            'post' => $post
+            'post' => $post,
         ]);
     }
 

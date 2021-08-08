@@ -2,7 +2,7 @@ module.exports = {
     mode: 'jit',
     purge: [
         // "./resources/**/*.blade.php",
-        // "./resources/**/*.js",
+        "./resources/**/*.js",
         // "./resources/**/*.vue",
         "./storage/framework/views/*.php",
     ],

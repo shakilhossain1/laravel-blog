@@ -4,13 +4,32 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Scout\Searchable;
 
 class Post extends Model
 {
-    use HasFactory;
+    use HasFactory, Searchable;
 
     protected $guarded = [];
     protected $with = ['category', 'author'];
+
+    /**
+     * Get the indexable data array for the model.
+     *
+     * @return array
+     */
+    public function toSearchableArray()
+    {
+        $array = $this->toArray();
+
+        // Applies Scout Extended default transformations:
+        $array = $this->transform($array);
+
+        // Add an extra attribute:
+        $array['added_month'] = substr($array['created_at'], 0, 7);
+
+        return $array;
+    }
 
     public function scopeFilter($query, array $filters)
     {
@@ -43,6 +62,11 @@ class Post extends Model
                     $query->where('username', $author)
                 )
         );
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
     }
 
     public function category()

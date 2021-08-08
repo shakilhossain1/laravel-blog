@@ -3,7 +3,7 @@
         Latest <span class="text-blue-500">Laravel From Scratch</span> News
     </h1>
 
-    <div class="space-y-2 lg:space-y-0 lg:space-x-4 mt-4">
+    <div class="space-y-2 lg:flex lg:justify-center lg:space-y-0 lg:space-x-4 mt-4">
         <!--  Category -->
         <div class="relative flex lg:inline-flex items-center bg-gray-100 rounded-xl">
             <x-category-dropdown />
@@ -32,15 +32,28 @@
         </div> --}}
 
         <!-- Search -->
-        <div class="relative flex lg:inline-flex items-center bg-gray-100 rounded-xl px-3 py-2">
+        {{-- <div class="relative flex lg:inline-flex items-center bg-gray-100 rounded-xl px-3 py-2">
             <form method="GET" action="/">
                 @if (request('category'))
                     <input type="hidden" name="category" value="{{ request('category') }}">
-                @endif
-                <input type="text" name="search" placeholder="Find something"
-                    class="bg-transparent placeholder-black font-semibold text-sm focus:outline-none"
-                    value="{{ request('search') }}">
+            @endif
+            <input type="text" name="search" placeholder="Find something"
+                class="bg-transparent placeholder-black font-semibold text-sm focus:outline-none"
+                value="{{ request('search') }}">
             </form>
+        </div> --}}
+        <div class="relative w-full lg:w-64" x-data="search()">
+            <input type="search" x-model="query" x-on:keyup="run()"
+                class="bg-white border border-gray-300 focus:outline-none rounded-lg p-2 w-full" placeholder="Search..." />
+            <div x-show="query" class="absolute bg-white px-4 max-h-64 overflow-y-auto shadow rounded w-full max-w-full" style="display: none;">
+                <p x-show="loading" class="py-2 m-0">Loading</p>
+                <p x-show="!loading && !posts" class="py-2 m-0">No results.</p>
+                <div x-show="!loading && posts.length">
+                    <template x-for="post in posts">
+                        <a :href="`/posts/${post.slug}`" class="block px-4 py-4 w-full text-left rounded-lg bg-gray-200 my-1 hover:bg-blue-500 text-sm font-bold text-black" x-text="post.title"></a>
+                    </template>
+                </div>
+            </div>
         </div>
     </div>
 </header>
