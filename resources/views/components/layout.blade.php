@@ -28,6 +28,9 @@
             <div class="mt-8 md:mt-0 flex items-center space-x-4">
                 @auth
                     <span class="text-xs font-bold uppercase">{{ auth()->user()->name }}</span>
+                    @admin('admin')
+                        <a href="/admin/posts/create" class="text-xs font-bold uppercase">Create Post</a>
+                    @endadmin
                     <form action="/logout" method="POST">
                         @csrf
                         <button type="submit" class="text-sm uppercase text-blue-500">Log out</button>

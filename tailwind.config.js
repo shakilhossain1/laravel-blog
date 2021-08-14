@@ -1,8 +1,8 @@
 module.exports = {
     mode: 'jit',
     purge: [
-        // "./resources/views/example.blade.php",
-        "./resources/**/*.js",
+        // "./resources/views/**/*.blade.php",
+        // "./resources/**/*.js",
         // "./resources/**/*.vue",
         "./storage/framework/views/*.php",
     ],
